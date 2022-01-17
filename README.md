@@ -1,11 +1,12 @@
 # ECAC-S
 
-**Authors:** Benjamin Mario Sainz-Tinajero and Andres Eduardo Gutierrez-Rodriguez.  
+**Authors:** Benjamin Ma. Sainz-Tinajero and Andres E. Gutierrez-Rodriguez.  
 **Paper title:** Scalable Evolutionary Clustering using Classifiers and its Application on Satellite Image Segmentation
 
+## Abstract
 The absence of a standard definition of a cluster poses the inherent challenge of designing methods that optimize objective functions capable of capturing the intrinsic relationships within a data set. Traditional clustering algorithms are designed according to specific notions of similarity, inducing bias towards certain structures. However, with Evolutionary Clustering, we can define different and more general criteria to optimize. In this paper, we present ECAC-S, a scalable version of the Evolutionary Clustering Algorithm using Classifiers with the F1 score (F1-ECAC). Our algorithm's objective function is designed as a supervised learning problem for assessing the generalization degree of a partition to avoid the bias caused by conventional distance functions. This paper proposes a set of modifications on data manipulation, fitness computing, the evolutionary process, and hyper-parameter settings to our previous development. The results using 30 publicly available datasets show a significant difference in efficiency to F1-ECAC, whereas maintaining the same performance. We include an application on image segmentation to test ECAC-S in a real computer vision task with ten satellite captures. This benchmark was held against the most representative clustering methods, and ECAC-S achieved competitive performance against state-of-the-art algorithms such as k-means, DBSCAN, Birch and Spectral-clustering.
 
-F1-ECAC is available in this repository in a Python implementation.
+ECAC-S is available in this repository in a Python implementation.
 
 # Algorithm hyper-parameters
 ``X``: an array containing the dataset features with no header. Each row must belong to one object with one column per feature.  
