@@ -46,7 +46,7 @@ Benjamin
 **LinkedIn:** https://www.linkedin.com/in/benjaminmariosainztinajero/
 
 # References
-[1] B. M. Sainz-Tinajero, G. I. Perez-Landa, C. E. Orozco-Mora, D. Otero-Argote, and A. E. Gutierrez-Rodriguez, "Scalable Evolutionary Clustering using Classifiers and its Application on Satellite Image Segmentation," 2022. *Paper under review at Expert Systems with Applications.* 
+[1] B. M. Sainz-Tinajero, G. I. Perez-Landa, C. E. Orozco-Mora, D. Otero-Argote, and A. E. Gutierrez-Rodriguez, "Scalable Evolutionary Clustering using Classifiers and its Application on Satellite Image Segmentation," 2022. *Paper under review at Expert Systems with Applications.*   
 [2] B. M. Sainz-Tinajero, A. E. Gutierrez-Rodriguez, H. G. Ceballos and F. J. Cantu-Ortiz, "F1-ECAC: Enhanced Evolutionary Clustering Using an Ensemble of Supervised Classifiers," in IEEE Access, 2021, DOI: 10.1109/ACCESS.2021.3116092.  
 [3] B. M. Sainz-Tinajero, A. E. Gutierrez-Rodriguez, H. G. Ceballos, and F. J. Cantu-Ortiz, “Evolutionary clustering algorithm using supervised classifiers,” in 2021 IEEE Congress on Evolutionary Computation (CEC). IEEE, 2021. 10.1109/CEC45853.2021.9504826.
 
