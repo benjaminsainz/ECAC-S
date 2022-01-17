@@ -9,35 +9,42 @@ The absence of a standard definition of a cluster poses the inherent challenge o
 ECAC-S is available in this repository in a Python implementation.
 
 # Algorithm hyper-parameters
-``X``: an array containing the dataset features with no header. Each row must belong to one object with one column per feature.  
-``n_clusters``: int with the number of desired clusters.  
-``data``: a string with the name of the dataset used for printing the algorithm initialization and naming the output file.  
+``X``: DataFrame containing the dataset attributes with no header. Each row must belong to one object each column represents a feature.    
+``n_clusters``: integer with the number of required clusters.  
+``data``: a string with the name of the dataset used for printing the algorithm initialization and exporting the results.  
 ``pop_size`` (default = 200): population size that is carried along the evolutionary process.   
 ``max_gens`` (default = 200): maximum generations in the evolutionary process.   
 ``p_crossover`` (default = 0.95): probability of running the crossover operator.  
 ``p_mutation`` (default = 0.98): probability of running the mutation operator.  
+``test_size`` (default = 0.75): percentage of samples used for testing the classifiers in the objective function.  
 ``runs`` (default = 10): independent runs of the algorithm.  
 ``y`` (default = None): one-dimensional array with the ground truth cluster labels if available.  
-``log_file`` (default = False): creates a .csv file with the fitness value of the best individual per generation.  
-``evolutionary_plot`` (default = False): creates multiple .jpg files with scatter plots of the first two columns from the dataset and their cluster membership.  
+``shuffle_index`` (default = False): list containing the original indexes sorted according to the Single-linkage heuristic.    
 
-### Optional data retrieval function
-An additional data retrieval function is included for easy access and generation of the parameters X, clusters and data along with multiple datasets ready to be clustered, which can be used as a reference for preparing your data. The function will use the datasets included in the path ``/data`` and returns the data string, the X features, and the dataset's number of reference classes (n_clusters). The only parameter for this function is a string with a dataset name from the options. To run it on Python and get the information of the *wine* dataset, run these commands in the interface.     
-``>>> from retr import *``  
-``>>> data, n_clusters, X, y = data_retrieval('wine')``  
-
-Label files are included for every dataset for any desired benchmarking tests.
+For more information on the hyper-parameters and their influence in the evolutionary process, we refer the used to the article in Ref.[1].  
 
 # Setup and run using Python
-Open your preferred Python interface and follow these commands to generate a clustering using F1-ECAC. To execute it, just import the functions in *gen.py* and run ``f1ecac_run()`` with all of its parameters. See the example code below, which follows the data, n_clusters, X, and y variables set previously for the *wine* dataset.  
+Open your preferred Python interface and follow these commands to generate a clustering using ECAC-S.  
+
+A data retrieval function is included for easy access and preparation of the parameters dataset name string ``data``, number of clusters ``n_clusters``, features ``X``, ground truth labels ``y``, and ``shuffle_index``, which represents the order in which the last two parameters are sorted. We include 40 publicly available datasets with our algorithm's required format. The features should be stored in a dataset named *example_X.csv* and if ground truth labels are available, they should be saved with the name *example_y.csv*. This function will use the datasets included in the path ``/data``, and the only parameter for this function is a string with a dataset name. To run it on Python and get the information of the *iris* dataset, run these commands in the interface.   
+
+``>>> from retr import *``  
+``>>> data, n_clusters, X, y, shuffle_index = retrieval(d)`` 
+
+Whether you have a file with ground truth labels or not, you must use this function to initialize the process correctly. If there is a file with labels, the number of groups found in it is stored in the *n_clusters* variable and its values are saved in the ``y`` array. If there is not, ``y`` is set to *None* and a value of 1 is set to *n_clusters*, which will cause the process to terminate in case its value is not setup correctly in the next function. 
+
+To execute ECAC-S import the functions in *gen.py* and run ``ecacs_run()`` with all of its parameters. See the example code below, which follows the variables set previously for the *iris* dataset.  
+ 
 **Important**: You will need to have previously installed some basic data science packages such as numpy, pandas, matplotlib, seaborn, and Sci-kit Learn).
 
+# Example
+
 ``>>> from gen import *``  
-``>>> f1ecac_run(X, n_clusters, data, pop_size=200, max_gens=200, p_crossover=0.95, p_mutation=0.98, runs=10, y=y, log_file=True, evolutionary_plot=True)``  
+``>>>  ecacs_run(X, n_clusters, data, pop_size=200, max_gens=200, p_crossover=0.95, p_mutation=0.98, test_size=0.75, runs=10, y=y, shuffle_index=shuffle_index)``  
 
-Running these commands will execute F1-ECAC using the wine dataset's features, 3 clusters, 200 individuals per population, 200 generations, probabilities of running the crossover and mutation operators of 0.95 and 0.98 for 10 independent runs, and will compute the adjusted RAND index between the solutions and the provided y array. A .csv file with the clustering and the results is stored in the ``/f1-ecac-out`` path.
+Running these commands will execute ECAC-S using the iris dataset's features, 3 clusters, 200 individuals per population, 200 generations, probabilities of running the crossover and mutation operators of 0.95 and 0.98 for 10 independent runs, and will compute the adjusted RAND index between the solutions and the provided ``y`` array. If ground truth labels are not provided, then ``n_clusters`` should be specified manually before running this function. A .csv file with the clustering and the results is stored in the ``/out`` path.
 
-A test.py file is provided for a more straight-forward approach to using the algorithm.  
+A test.py file is provided with this example for a more straight-forward approach to using the algorithm.  
 
 I hope ECAC-S is a powerful asset for your data science toolkit,
 
