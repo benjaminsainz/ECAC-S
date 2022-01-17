@@ -9,7 +9,7 @@ The absence of a standard definition of a cluster poses the inherent challenge o
 ECAC-S is available in this repository in a Python implementation.
 
 # Algorithm hyper-parameters
-``X``: DataFrame containing the dataset attributes with no header. Each row must belong to one object each column represents a feature.    
+``X``: DataFrame containing the dataset attributes with no header. Each row must belong to one object and each column represents a feature.    
 ``n_clusters``: integer with the number of required clusters.  
 ``data``: a string with the name of the dataset used for printing the algorithm initialization and exporting the results.  
 ``pop_size`` (default = 200): population size that is carried along the evolutionary process.   
