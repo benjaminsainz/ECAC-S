@@ -8,7 +8,7 @@ The absence of a standard definition of a cluster poses the inherent challenge o
 
 ECAC-S is available in this repository in a Python implementation.
 
-# Algorithm hyper-parameters
+# Hyper-parameter Setting
 ``X``: DataFrame containing the dataset attributes with no header. Each row must belong to one object and each column represents a feature.    
 ``n_clusters``: integer with the number of required clusters.  
 ``data``: a string with the name of the dataset used for printing the algorithm initialization and exporting the results.  
@@ -23,8 +23,8 @@ ECAC-S is available in this repository in a Python implementation.
 
 For more information on the hyper-parameters and their influence in the evolutionary process, we refer the user to the article in Ref.[1].  
 
-# Setup and run using Python
-## Data preparation
+# Setup and Run using Python
+## Data Preparation
 We include 40 publicly available datasets with our algorithm's required format. The features should be stored in a dataset named *example_X.csv* and if ground truth labels are available, they should be saved with the name *example_y.csv*.
 
 ## Running ECAC-S
