@@ -1,6 +1,6 @@
 # ECAC-S
 
-**Authors:** Benjamin Ma. Sainz-Tinajero and Andres E. Gutierrez-Rodriguez.  
+**Authors:** Benjamin M. Sainz-Tinajero and Andres E. Gutierrez-Rodriguez.  
 **Paper title:** Scalable Evolutionary Clustering using Classifiers and its Application on Satellite Image Segmentation
 
 ## Abstract
