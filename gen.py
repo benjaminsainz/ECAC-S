@@ -15,7 +15,7 @@ import multiprocessing
 
 def print_initialization_parameters(run, data, n_clusters, X, pop_size, max_gens):
     print('======================= TEST {} ========================'.format(run+1))
-    print('Clustering started using F1-ECAC+'.format(data))
+    print('Clustering started using ECAC-S'.format(data))
     print('Dataset: {}, Clusters: {}'.format(data, n_clusters))
     print('Instances: {}, Features: {}'.format(len(X), len(X.columns)))
     print('Population size: {}, Generations: {}'.format(pop_size, max_gens))
@@ -63,7 +63,7 @@ def process_end_metrics(start, best_partition, y, shuffle_index):
 def results_dict_compilation(data, n_clusters, X, pop_size, max_gens, gens, best_fitness, adj_rand_index, best_partition, run_time):
     d = dict()
     d['Dataset'] = data
-    d['Algorithm'] = 'F1-ECAC+'
+    d['Algorithm'] = 'ECAC-S'
     d['Clusters'] = n_clusters
     d['Instances'] = len(X)
     d['Features'] = len(X.columns)
@@ -92,7 +92,7 @@ def csv_files(out, data, n_clusters, pop_size, max_gens, run, runs):
     df.reset_index(drop=True, inplace=True)
     df.to_csv('out/solutions-{}_{}_{}_{}-{}.csv'.format(data, n_clusters, pop_size, max_gens, runs))
 
-def f1ecacplus_run(X, n_clusters, data, pop_size=200, max_gens=200, p_crossover=0.95, p_mutation=0.98, test_size=0.75, runs=10, y=None, shuffle_index=[]):
+def ecacs_run(X, n_clusters, data, pop_size=200, max_gens=200, p_crossover=0.95, p_mutation=0.98, test_size=0.75, runs=10, y=None, shuffle_index=[]):
     for run in range(runs):
         print_initialization_parameters(run, data, n_clusters, X, pop_size, max_gens)
         start = time.time()
