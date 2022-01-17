@@ -13,7 +13,7 @@ ECAC-S is available in this repository in a Python implementation.
 ``n_clusters``: integer with the number of required clusters.  
 ``data``: a string with the name of the dataset used for printing the algorithm initialization and exporting the results.  
 ``pop_size`` (default = 200): population size that is carried along the evolutionary process.   
-``max_gens`` (default = 200): maximum generations in the evolutionary process.   
+``max_gens`` (default = 200): maximum generations of the evolutionary process.   
 ``p_crossover`` (default = 0.95): probability of running the crossover operator.  
 ``p_mutation`` (default = 0.98): probability of running the mutation operator.  
 ``test_size`` (default = 0.75): percentage of samples used for testing the classifiers in the objective function.  
@@ -21,7 +21,7 @@ ECAC-S is available in this repository in a Python implementation.
 ``y`` (default = None): one-dimensional array with the ground truth cluster labels if available.  
 ``shuffle_index`` (default = False): list containing the original indexes sorted according to the Single-linkage heuristic.    
 
-For more information on the hyper-parameters and their influence in the evolutionary process, we refer the used to the article in Ref.[1].  
+For more information on the hyper-parameters and their influence in the evolutionary process, we refer the user to the article in Ref.[1].  
 
 # Setup and run using Python
 Open your preferred Python interface and follow these commands to generate a clustering using ECAC-S.  
