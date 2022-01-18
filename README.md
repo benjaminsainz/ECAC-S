@@ -30,7 +30,7 @@ Running these commands will execute ECAC-S using the ``iris`` dataset's features
 
 **Important**: You will need to have previously installed some basic data science packages such as NumPy, Pandas, Matplotlib, Seaborn, and Scikit-learn).
 
-A test.py file is provided with this example for a more straight-forward approach to using the algorithm.  
+An ``example.py`` file is provided with this example for a more straight-forward approach to using the algorithm.  
 
 I hope ECAC-S is a powerful asset for your data science toolkit,
 
