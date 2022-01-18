@@ -1,5 +1,5 @@
 """
-Authors: Benjamin M. Sainz-Tinajero, Andres E. Gutierrez-Rodriguez.
+Authors: Benjamin M. Sainz-Tinajero and Andres E. Gutierrez-Rodriguez @ Tecnologico de Monterrey, 2022.
 """
 
 from obj import *
