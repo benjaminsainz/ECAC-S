@@ -9,11 +9,11 @@ The absence of a standard definition of a cluster poses the inherent challenge o
 ECAC-S is available in this repository in a Python implementation.
 
 # Data Preparation
-ECAC-S requires one mandatory file to perform clustering. A *.csv* file named *iris_X.csv*, for example, must contain the features of a dataset with no header. A second optional file could contain ground truth labels in case you're running a benchmark and need to compute the Adjusted RAND Index of a solution against a reference mask or partition. This second file must be named *iris_y.csv* and must have one column with the same number of objects as the *iris_X.csv* file, placing each object into one group. Our algorithm automatically searches for both of this files in the ``\data`` path and computes the Adjusted RAND Index only if it finds ground truth labels in a file as mentioned before. We include 40 publicly available datasets complying with our algorithm's required data format. 
+ECAC-S requires one mandatory file to perform clustering. A ``.csv`` file named ``iris_X.csv``, for example, must contain the features of a dataset with no header. A second optional file could contain ground truth labels in case you're running a benchmark and need to compute the Adjusted RAND Index of a solution against a reference mask or partition. This second file must be named ``iris_y.csv`` and must have one column with the same number of objects as the ``iris_X.csv`` file, placing each object into one group. Our algorithm automatically searches for both of this files in the ``\data`` path and computes the Adjusted RAND Index only if it finds ground truth labels in a file as mentioned before. We include 40 publicly available datasets complying with our algorithm's required data format. 
 
 # Hyper-parameter Setting
 ``data``: a string with the name of the dataset to be retrieved without the ``_X.csv`` or ``_y.csv`` suffixes.   
-``n_clusters``: integer with the number of required clusters. As an alternative, setting this argument as *'auto'* will set the number of clusters found in the ground truth file as ``n_clusters``.  
+``n_clusters``: integer with the number of required clusters. As an alternative, setting this argument as ``'auto'`` will set the number of clusters found in the ground truth file as ``n_clusters``.  
 ``pop_size`` (default = 200): population size that is carried along the evolutionary process.   
 ``max_gens`` (default = 200): maximum generations of the evolutionary process.    
 ``runs`` (default = 10): independent runs of the algorithm.  
@@ -21,12 +21,12 @@ ECAC-S requires one mandatory file to perform clustering. A *.csv* file named *i
 For more information on the hyper-parameters and their influence in the evolutionary process, we refer the user to the article in Ref.[1].  
 
 # Setup and Run using Python
-Open your preferred Python interface and follow these commands to generate a clustering using ECAC-S. We will continue using the *iris* dataset as an example.  
+Open your preferred Python interface and follow these commands to generate a clustering using ECAC-S. We will continue using the ``iris`` dataset as an example.  
 
 ``>>> from gen import *``  
 ``>>> ecacs_run(data='iris', n_clusters=3, pop_size=200, max_gens=200, runs=10)``
 
-Running these commands will execute ECAC-S using the *iris* dataset's features with 3 clusters, 200 individuals per population, 200 generations, and 10 independent runs, and will compute the Adjusted RAND Index between the solutions and the reference labels. A *.csv* file with the clustering and the results is stored in the ``/out`` path.
+Running these commands will execute ECAC-S using the ``iris`` dataset's features with 3 clusters, 200 individuals per population, 200 generations, and 10 independent runs, and will compute the Adjusted RAND Index between the solutions and the reference labels. A ``.csv`` file with the clustering and the results is stored in the ``/out`` path.
 
 **Important**: You will need to have previously installed some basic data science packages such as NumPy, Pandas, Matplotlib, Seaborn, and Scikit-learn).
 
