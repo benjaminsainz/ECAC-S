@@ -24,7 +24,7 @@ For more information on the hyper-parameters and their influence in the evolutio
 Open your preferred Python interface and follow these commands to generate a clustering using ECAC-S. We will continue using the *iris* dataset as an example.  
 
 ``>>> from gen import *``  
-``>>> ecacs_run(data='iris', n_clusters=3, pop_size=200, max_gens=200, runs=10)
+``>>> ecacs_run(data='iris', n_clusters=3, pop_size=200, max_gens=200, runs=10)``
 
 Running these commands will execute ECAC-S using the *iris* dataset's features with 3 clusters, 200 individuals per population, 200 generations, and 10 independent runs, and will compute the Adjusted RAND Index between the solutions and the reference labels. A *.csv* file with the clustering and the results is stored in the ``/out`` path.
 
