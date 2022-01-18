@@ -103,7 +103,7 @@ def csv_files(out, data, n_clusters, pop_size, max_gens, run, runs):
     df.reset_index(drop=True, inplace=True)
     df.to_csv('out/solutions-{}_{}_{}_{}-{}.csv'.format(data, n_clusters, pop_size, max_gens, runs))
 
-def ecacs_run(data, n_clusters=3, pop_size=200, max_gens=200, runs=10):
+def ecacs_run(data, n_clusters, pop_size=200, max_gens=200, runs=10):
     data, n_clusters, X, y, shuffle_index = retrieval(data, n_clusters)
     for run in range(runs):
         print_initialization_parameters(run, data, n_clusters, X, pop_size, max_gens)
