@@ -14,6 +14,6 @@ nature = ['canada', 'coast', 'highway-in-the-desert', 'london', 'parking-lot', '
           'varadero', 'white-containers']
 
 if __name__ == "__main__":
-    for d in ds:
+    for d in ['iris']:
         data, n_clusters, X, y, shuffle_index = retrieval(d)
         ecacs_run(X, n_clusters, data, pop_size=200, max_gens=200, p_crossover=0.95, p_mutation=0.98, test_size=0.75, runs=10, y=y, shuffle_index=shuffle_index)
