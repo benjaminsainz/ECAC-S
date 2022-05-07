@@ -9,9 +9,11 @@ ds = ['absenteeism-at-work', 'arrhythmia', 'breast-cancer-wisconsin', 'breast-ti
       'ionosphere', 'iris', 'leaf', 'liver', 'parkinsons', 'seeds', 'segment', 'sonar', 'soybean-large',
       'student-performance', 'tic-tac-toe', 'transfusion', 'user-knowledge-modeling', 'wine', 'yeast', 'zoo']
 
+
 nature = ['canada', 'coast', 'highway-in-the-desert', 'london', 'parking-lot', 'port-city', 'port', 'road-with-trees', 
           'varadero', 'white-containers']
 
+
 if __name__ == "__main__":
-    for d in ['iris']:
+    for d in ds:
         ecacs_run(data=d, n_clusters=3, pop_size=200, max_gens=200, runs=10)
