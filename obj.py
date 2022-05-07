@@ -7,7 +7,18 @@ from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import metrics
 
+from oper import *
+from ind import *
+
 import numpy as np
+import warnings
+
+def warn(*args, **kwargs):
+    pass
+
+
+warnings.warn = warn
+
 
 def fitness_value(arguments):
     X, n_clusters, ind = arguments
@@ -20,8 +31,10 @@ def fitness_value(arguments):
     f2_test = metrics.f1_score(y_test, model_2.predict(X_test), average='macro')
     return sum([f1_test, f2_test])/len([f1_test, f2_test])
 
+
 def parallel_fitness_arguments(X, n_clusters, children):
     arguments = []
     for child in children:
         arguments.append([X, n_clusters, child])
     return arguments
+
