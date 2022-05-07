@@ -1,10 +1,12 @@
 """
 Author: Benjamin M. Sainz-Tinajero @ Tecnologico de Monterrey, 2022.
+
 """
 
 from ind import *
 
 import numpy as np
+
 
 def binary_tournament(population, pop_size, fitness):
     i, j = np.random.randint(pop_size), np.random.randint(pop_size)
@@ -15,6 +17,7 @@ def binary_tournament(population, pop_size, fitness):
     else:
         return population[j]
 
+
 def perform_crossover(parent_1, parent_2, k_set):
     missing_k_in_genotype = True
     while missing_k_in_genotype is True:
@@ -23,11 +26,13 @@ def perform_crossover(parent_1, parent_2, k_set):
         missing_k_in_genotype = check_if_missing_k(k_set, child)
     return child
 
+
 def twopoint_crossover(parent_1, parent_2, k_set):
     if np.random.random() >= 0.95:
         return parent_1
     else:
         return perform_crossover(parent_1, parent_2, k_set)
+
 
 def change_gene_value(ind):
     child = ind.copy()
@@ -36,6 +41,7 @@ def change_gene_value(ind):
         child[j] = ind[j+1]
     return child
 
+
 def perform_mutation(ind, k_set):
     missing_k_in_genotype = True
     while missing_k_in_genotype is True:
@@ -43,11 +49,13 @@ def perform_mutation(ind, k_set):
         missing_k_in_genotype = check_if_missing_k(k_set, child)
     return child
 
+
 def mutation(ind, k_set):
     if np.random.random() >= 0.98:
         return ind
     else:
         return perform_mutation(ind, k_set)
+
 
 def genetic_operators(arguments):
     parent_tuple, k_set = arguments
@@ -56,11 +64,13 @@ def genetic_operators(arguments):
     mutated_child = mutation(child, k_set)
     return mutated_child
 
+
 def genetic_arguments(parent_tuples, k_set):
     arguments = []
     for parent_pair in parent_tuples:
         arguments.append([parent_pair, k_set])
     return arguments
+
 
 def selection_and_reproduction(pop_size, population, fitness, k_set, pool):
     selected_parent_tuples = []
@@ -74,3 +84,4 @@ def selection_and_reproduction(pop_size, population, fitness, k_set, pool):
     arguments = genetic_arguments(selected_parent_tuples, k_set)
     children = list(pool.map(genetic_operators, arguments))
     return children
+    
