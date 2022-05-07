@@ -35,7 +35,7 @@ An ``example.py`` file is provided with this example for a more straight-forward
 I hope ECAC-S is a powerful asset for your data science toolkit,
 
 Benjamin  
-**Email:** a01362640@tec.mx, bm.sainz@gmail.com  
+**Email:** sainz@tec.mx, bm.sainz@gmail.com  
 **LinkedIn:** https://www.linkedin.com/in/benjaminmariosainztinajero/
 
 # References
