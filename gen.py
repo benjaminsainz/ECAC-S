@@ -1,5 +1,6 @@
 """
 Author: Benjamin M. Sainz-Tinajero @ Tecnologico de Monterrey, 2022.
+
 """
 
 from retr import *
@@ -25,12 +26,14 @@ def print_initialization_parameters(run, data, n_clusters, X, pop_size, max_gens
     print('Population size: {}, Generations: {}'.format(pop_size, max_gens))
     print('Creating initial population')
 
+
 def sort_list_by_index_list(lst, index_list):
     df = pd.DataFrame()
     df['lst'] = lst
     df['index_list'] = index_list
     df.sort_values('index_list', inplace=True)
     return df['lst'].to_list()
+
 
 def new_best_condition(fitness, best_partition, best_fitness, population, no_new_best_gens):
     if max(fitness) >= best_fitness:
@@ -40,6 +43,7 @@ def new_best_condition(fitness, best_partition, best_fitness, population, no_new
     else:
         no_new_best_gens += 1
     return best_partition, best_fitness, no_new_best_gens
+
 
 def evolutionary_process(max_gens, best_fitness, best_partition, population, fitness, start, pop_size, k_set, X, n_clusters, pool, shuffle_index):
     print('Starting evolutionary process...')
@@ -51,9 +55,11 @@ def evolutionary_process(max_gens, best_fitness, best_partition, population, fit
         best_partition, best_fitness, no_new_best_gens = new_best_condition(fitness, best_partition, best_fitness, population, no_new_best_gens)
         population = children.copy()
         print('Generation {}, Fitness: {:.4f}, Elapsed Time: {}'.format(i + 1, best_fitness, time.strftime('%H:%M:%S', time.gmtime(time.time() - start))))
-        if best_fitness == 1 or no_new_best_gens == max_gens*0.20: break
+        if best_fitness == 1 or no_new_best_gens == max_gens*0.20:
+            break
     best_partition = sort_list_by_index_list(best_partition, shuffle_index)
     return best_fitness, np.array(best_partition), i+1
+
 
 def process_end_metrics(start, best_partition, y, shuffle_index):
     print('Optimization finished. Exporting results...')
@@ -71,6 +77,7 @@ def gene_export(best_partition, res_dict):
     for i in range(len(best_partition)):
         res_dict['X{}'.format(i + 1)] = '{}'.format(best_partition[i])
     return res_dict
+
 
 def results_dict_compilation(data, n_clusters, X, pop_size, max_gens, gens, best_fitness, adj_rand_index, best_partition, run_time):
     d = dict()
@@ -91,6 +98,7 @@ def results_dict_compilation(data, n_clusters, X, pop_size, max_gens, gens, best
     out = pd.DataFrame(d, index=[data])
     return out
 
+
 def csv_files(out, data, n_clusters, pop_size, max_gens, run, runs):
     if not os.path.exists('out/{}_{}_{}_{}'.format(data, n_clusters, pop_size, max_gens)):
         os.makedirs('out/{}_{}_{}_{}'.format(data, n_clusters, pop_size, max_gens))
@@ -102,6 +110,7 @@ def csv_files(out, data, n_clusters, pop_size, max_gens, run, runs):
         df = df.append(temp_df)
     df.reset_index(drop=True, inplace=True)
     df.to_csv('out/solutions-{}_{}_{}_{}-{}.csv'.format(data, n_clusters, pop_size, max_gens, runs))
+
 
 def ecacs_run(data, n_clusters, pop_size=200, max_gens=200, runs=10):
     data, n_clusters, X, y, shuffle_index = retrieval(data, n_clusters)
